@@ -25,12 +25,11 @@ class ProcessAContext:
 class ProcessA:
     def __init__(self, conf):
         self.ctx = ProcessAContext(conf)
-        self.foo_api_client = FooApiClient(self.ctx.url)
 
     def run(self):
         logger.info('start')
 
-        res = self.foo_api_client.get()
+        res = FooApiClient(self.ctx.url).get()
         if res['aaa'] != self.ctx.param_a:
             raise RuntimeError('bar')
 

@@ -30,3 +30,7 @@ class Arguments:
             required=False
         )
         return parser.parse_args()
+
+
+if __name__ == '__main__':
+    print(Arguments().parse_args())
